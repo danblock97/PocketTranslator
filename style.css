@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+	outline: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #707070; /* Lighter dark shade */
+	font-family: "Arial", sans-serif;
+	color: #e0e0e0; /* Lighter text color */
+	width: 350px;
+	padding: 20px;
+}
+
+label {
+	display: block;
+	margin-bottom: 0.75rem;
+	font-weight: bold;
+	font-size: 0.875rem;
+	color: #fff;
+}
+
+textarea,
+select,
+button {
+	width: 100%;
+	padding: 0.75rem;
+	margin-bottom: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 0.5rem;
+	background-color: #a8a8a8; /* Lighter shade */
+	font-family: inherit;
+	color: #333; /* Dark text for contrast */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+textarea {
+	resize: vertical;
+	overflow-y: auto;
+	min-height: 100px;
+}
+
+button {
+	background-color: #007bff; /* Brighter blue */
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease, box-shadow 0.2s ease;
+	font-size: 0.875rem;
+	font-weight: bold;
+}
+
+button:hover,
+button:focus {
+	background-color: #0056cc; /* Darker shade on hover/focus */
+	outline: none;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover/focus */
+}
+
+#outputText {
+	min-height: 80px;
+	border: 1px solid #ccc;
+	border-radius: 0.5rem;
+	padding: 0.75rem;
+	font-size: 0.875rem;
+	white-space: pre-wrap;
+	background-color: #707070; /* Matching body background */
+	color: #e0e0e0; /* Matching body text color */
+	overflow-y: auto;
+}
+
+textarea::placeholder,
+#outputText::placeholder {
+	color: #ccc; /* Lighter placeholder color */
+}
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+	background-repeat: no-repeat;
+	background-position: right 0.75rem top 50%;
+	background-size: 1.25rem;
+}
+
+textarea:focus,
+select:focus,
+button:focus {
+	border-color: #007bff; /* Bright blue for focus */
+}
