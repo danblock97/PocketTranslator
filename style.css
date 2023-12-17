@@ -1,3 +1,4 @@
+/* Reset and base styles */
 *,
 *::before,
 *::after {
@@ -8,33 +9,34 @@
 }
 
 body {
-	background-color: #707070; /* Lighter dark shade */
+	background-color: #f5f5f5; /* Light gray background */
 	font-family: "Arial", sans-serif;
-	color: #e0e0e0; /* Lighter text color */
-	width: 350px;
+	color: #333; /* Dark text color */
+	width: 300px; /* Adjust the width to your preference */
 	padding: 20px;
+	transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
 }
 
 label {
 	display: block;
-	margin-bottom: 0.75rem;
+	margin-bottom: 8px; /* Slightly reduced spacing between labels */
 	font-weight: bold;
-	font-size: 0.875rem;
-	color: #fff;
+	font-size: 14px;
+	color: #333;
 }
 
 textarea,
 select,
 button {
 	width: 100%;
-	padding: 0.75rem;
-	margin-bottom: 1rem;
+	padding: 10px;
+	margin-bottom: 12px; /* Slightly increased spacing between elements */
 	border: 1px solid #ccc;
-	border-radius: 0.5rem;
-	background-color: #a8a8a8; /* Lighter shade */
+	border-radius: 5px;
+	background-color: #fff;
 	font-family: inherit;
-	color: #333; /* Dark text for contrast */
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+	color: #333;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 textarea {
@@ -44,37 +46,39 @@ textarea {
 }
 
 button {
-	background-color: #007bff; /* Brighter blue */
+	background-color: #007bff;
 	color: #fff;
 	border: none;
 	cursor: pointer;
 	transition: background-color 0.3s ease, box-shadow 0.2s ease;
-	font-size: 0.875rem;
+	font-size: 14px;
 	font-weight: bold;
 }
 
 button:hover,
 button:focus {
-	background-color: #0056cc; /* Darker shade on hover/focus */
+	background-color: #0056cc;
 	outline: none;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover/focus */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #outputText {
 	min-height: 80px;
 	border: 1px solid #ccc;
-	border-radius: 0.5rem;
-	padding: 0.75rem;
-	font-size: 0.875rem;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 14px;
 	white-space: pre-wrap;
-	background-color: #707070; /* Matching body background */
-	color: #e0e0e0; /* Matching body text color */
+	background-color: #fff;
+	color: #333;
 	overflow-y: auto;
+	transition: background-color 0.3s ease, color 0.3s ease,
+		border-color 0.3s ease; /* Smooth transition */
 }
 
 textarea::placeholder,
 #outputText::placeholder {
-	color: #ccc; /* Lighter placeholder color */
+	color: #ccc;
 }
 
 select {
@@ -83,12 +87,58 @@ select {
 	appearance: none;
 	background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
 	background-repeat: no-repeat;
-	background-position: right 0.75rem top 50%;
-	background-size: 1.25rem;
+	background-position: right 10px center;
+	background-size: 20px;
 }
 
 textarea:focus,
 select:focus,
 button:focus {
-	border-color: #007bff; /* Bright blue for focus */
+	border-color: #007bff;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+	background-color: #262626; /* Darker shade for background */
+	color: #e0e0e0; /* Lighter text color for better readability */
+}
+
+.dark-mode label {
+	color: #e0e0e0; /* Lighter label color */
+}
+
+.dark-mode textarea,
+.dark-mode select,
+.dark-mode button {
+	background-color: #333; /* Dark background for input elements */
+	border-color: #444; /* Darker border for depth */
+	color: #e0e0e0; /* Light text for contrast */
+	box-shadow: none; /* Remove or soften shadows */
+}
+
+.dark-mode button {
+	background-color: #007bff; /* Keep button color for familiarity */
+	border: none;
+}
+
+.dark-mode button:hover,
+.dark-mode button:focus {
+	background-color: #0056cc; /* Darker shade for hover state */
+}
+
+/* Dark mode toggle styles */
+#darkModeToggleContainer {
+	padding-top: 10px;
+	text-align: left; /* Align to the left */
+}
+
+#darkModeToggleLabel {
+	display: inline-block; /* Inline label with checkbox */
+	margin-right: 8px;
+	color: #333; /* Normal mode color */
+	transition: color 0.3s ease; /* Smooth transition for label color */
+}
+
+.dark-mode #darkModeToggleLabel {
+	color: #e0e0e0; /* Dark mode color */
 }

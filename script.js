@@ -1,3 +1,4 @@
+// Fetching country codes and names for the select dropdown
 const selectTags = document.querySelectorAll("select");
 
 selectTags.forEach((tag, id) => {
@@ -16,6 +17,7 @@ selectTags.forEach((tag, id) => {
 	}
 });
 
+// Handling translation
 document.getElementById("translateBtn").addEventListener("click", function () {
 	const text = document.getElementById("inputText").value;
 	const translateFrom = document.getElementById("translateFrom").value;
@@ -37,19 +39,25 @@ function translateText(inputText, fromLang, toLang) {
 				document.getElementById("outputText").innerText = formattedText;
 			} else {
 				document.getElementById("outputText").innerText =
-					"Error : Could Not Translate!";
+					"Error: Could Not Translate!";
 			}
 		})
 		.catch((error) => {
 			console.error("Error:", error);
 			document.getElementById("outputText").innerText =
-				"Error : An error occurred while translating!";
+				"Error: An error occurred while translating!";
 		});
 }
 
 function removeQuestionMarks(text) {
 	return text.replace(/^¿+|¿+$/g, "");
 }
+
+// Handling speech synthesis
+document.getElementById("speakBtn").addEventListener("click", function () {
+	const translatedText = document.getElementById("outputText").innerText;
+	speakText(translatedText);
+});
 
 function speakText(text) {
 	const speechSynthesis = window.speechSynthesis;
@@ -59,7 +67,34 @@ function speakText(text) {
 	speechSynthesis.speak(speechUtterance);
 }
 
-document.getElementById("speakBtn").addEventListener("click", function () {
-	const translatedText = document.getElementById("outputText").innerText;
-	speakText(translatedText);
+// Dark mode toggle functionality
+const darkModeToggle = document.getElementById("darkModeToggle");
+const body = document.body;
+
+function enableDarkMode() {
+	body.classList.add("dark-mode");
+	localStorage.setItem("darkModeState", "enabled");
+}
+
+function disableDarkMode() {
+	body.classList.remove("dark-mode");
+	localStorage.setItem("darkModeState", "disabled");
+}
+
+// Initialize the dark mode state
+const savedDarkModeState = localStorage.getItem("darkModeState");
+if (savedDarkModeState === "enabled") {
+	enableDarkMode();
+	darkModeToggle.checked = true;
+} else {
+	disableDarkMode();
+	darkModeToggle.checked = false;
+}
+
+darkModeToggle.addEventListener("change", function () {
+	if (darkModeToggle.checked) {
+		enableDarkMode();
+	} else {
+		disableDarkMode();
+	}
 });

@@ -1,8 +1,8 @@
 {
 	"manifest_version": 3,
 	"name": "Pocket Translator",
-	"version": "1.0",
-	"description": "A simple pocket translator",
+	"version": "1.1",
+	"description": "A simple pocket translator able to translate any text, show you how to pronounce it and now even built in dark mode!",
 	"action": {
 		"default_popup": "index.html"
 	},

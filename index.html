@@ -6,29 +6,38 @@
 		<link rel="stylesheet" href="style.css" />
 		<title>Pocket Translator</title>
 	</head>
-
 	<body>
-		<label for="inputText">Your Text:</label>
-		<textarea
-			id="inputText"
-			rows="10"
-			placeholder="Type text here..."
-		></textarea>
+		<div id="container">
+			<label for="inputText">Your Text:</label>
+			<textarea
+				id="inputText"
+				rows="10"
+				placeholder="Type text here..."
+			></textarea>
 
-		<div>
-			<label for="translateFrom">Translate From:</label>
-			<select id="translateFrom">
-				<option value="en">English</option>
-			</select>
-			<label for="translateFrom">Translate To:</label>
-			<select id="translateTo">
-				<option value="es">Spanish</option>
-			</select>
+			<div>
+				<label for="translateFrom">Translate From:</label>
+				<select id="translateFrom">
+					<option value="en">English</option>
+				</select>
+				<label for="translateTo">Translate To:</label>
+				<select id="translateTo">
+					<option value="es">Spanish</option>
+				</select>
+			</div>
+
+			<button id="translateBtn">Translate</button>
+			<button id="speakBtn">Speak</button>
+			<div id="outputText" aria-readonly="true"></div>
+
+			<!-- Dark Mode Toggle -->
+			<div id="darkModeToggleContainer">
+				<label id="darkModeToggleLabel" for="darkModeToggle">
+					Dark Mode:
+					<input type="checkbox" id="darkModeToggle" />
+				</label>
+			</div>
 		</div>
-
-		<button id="translateBtn">Translate</button>
-		<button id="speakBtn">Speak</button>
-		<div id="outputText" aria-readonly="true"></div>
 
 		<script src="countries.js"></script>
 		<script src="script.js"></script>
