@@ -126,19 +126,61 @@ button:focus {
 	background-color: #0056cc; /* Darker shade for hover state */
 }
 
-/* Dark mode toggle styles */
 #darkModeToggleContainer {
+	text-align: left;
 	padding-top: 10px;
-	text-align: left; /* Align to the left */
+	display: flex; /* Use flexbox for alignment */
+	align-items: center; /* Align items vertically in the center */
 }
 
 #darkModeToggleLabel {
-	display: inline-block; /* Inline label with checkbox */
+	display: flex; /* Flex container for label and toggle */
+	align-items: center; /* Align text and toggle vertically */
 	margin-right: 8px;
 	color: #333; /* Normal mode color */
 	transition: color 0.3s ease; /* Smooth transition for label color */
+	cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
 }
 
 .dark-mode #darkModeToggleLabel {
 	color: #e0e0e0; /* Dark mode color */
+}
+
+/* Custom slider for dark mode toggle */
+#darkModeToggle {
+	display: none; /* Hide the default checkbox */
+}
+
+.slider {
+	position: relative;
+	display: inline-block;
+	width: 50px; /* Width of the slider */
+	height: 24px; /* Height of the slider */
+	background-color: #ccc;
+	border-radius: 24px;
+	cursor: pointer;
+	transition: 0.4s;
+	margin-left: 8px; /* Add some space between label text and toggle */
+}
+
+.slider::before {
+	position: absolute;
+	content: "";
+	height: 20px; /* Slightly smaller than the slider height */
+	width: 20px; /* Same as the height */
+	left: 2px;
+	bottom: 2px;
+	background-color: white;
+	border-radius: 50%;
+	transition: 0.4s;
+}
+
+#darkModeToggle:checked + .slider::before {
+	transform: translateX(
+		26px
+	); /* Move the slider knob to the right when checked */
+}
+
+#darkModeToggle:checked + .slider {
+	background-color: #2196f3; /* Change slider background color when checked */
 }
